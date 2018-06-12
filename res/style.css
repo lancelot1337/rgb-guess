@@ -1,0 +1,21 @@
+body{
+	background-color: #c4c4c4;
+}
+
+.square{
+	width: 30%;
+	background: #000;
+	padding-top: 30%;
+	margin: 1.66%;
+	float: left;
+}
+
+div#container{
+	margin: 0 auto;
+	max-width: 65%;
+}
+
+h1{
+	color: #222;
+	text-align: center;
+}
