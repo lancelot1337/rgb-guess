@@ -12,5 +12,11 @@ var squares = document.querySelectorAll(".square");
 var rgbHead = document.getElementById("rgbHead");
 rgbHead.textContent = correctColor.toUpperCase();
 for(var i = 0; i < colors.length; ++i){
+	//Add colors to the boxes
 	squares[i].style.background = colors[i];
+
+	//Add click listeners
+	squares[i].addEventListener("click",()=>{
+		alert("Clicked a square");
+	});
 }
