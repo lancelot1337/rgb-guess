@@ -7,7 +7,7 @@ var colors = [
 	"rgb(122, 56, 100)"
 	];
 
-var correctColor = colors[3];
+var correctColor = getRandColor();
 var squares = document.querySelectorAll(".square");
 var rgbHead = document.getElementById("rgbHead");
 var gamePrompt = document.querySelector("#gamePrompt");
@@ -38,4 +38,9 @@ function changeColors(clickedColor){
 	for(var i = 0; i < squares.length; ++i){
 		squares[i].style.background = clickedColor;
 	}
+}
+
+function getRandColor(){
+	var randNum = Math.floor(Math.random() * colors.length);
+	return colors[randNum];
 }
