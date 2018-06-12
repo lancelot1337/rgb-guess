@@ -1,2 +1,2 @@
 # rgb-guess
-An RGB guessing gaming made using js.
+An RGB guessing game made using js.
