@@ -10,6 +10,7 @@ var colors = [
 var correctColor = colors[3];
 var squares = document.querySelectorAll(".square");
 var rgbHead = document.getElementById("rgbHead");
+var gamePrompt = document.querySelector("#gamePrompt");
 rgbHead.textContent = correctColor.toUpperCase();
 for(var i = 0; i < colors.length; ++i){
 	//Add colors to the boxes
@@ -22,10 +23,11 @@ for(var i = 0; i < colors.length; ++i){
 
 		//Check if the colors are same
 		if(clickedColor === correctColor){
-			alert("Correct");
+			gamePrompt.textContent = "Correct!";
 		}
 		else{
-			alert("Wrong choice");
+			this.style.background = "#c4c4c4";
+			gamePrompt.textContent = "Try Again!";
 		}
 	});
 }
