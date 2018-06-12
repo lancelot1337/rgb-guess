@@ -16,7 +16,16 @@ for(var i = 0; i < colors.length; ++i){
 	squares[i].style.background = colors[i];
 
 	//Add click listeners
-	squares[i].addEventListener("click",()=>{
-		alert("Clicked a square");
+	squares[i].addEventListener("click",function(){
+		//Grab the color of the clicked box
+		var clickedColor = this.style.background;
+
+		//Check if the colors are same
+		if(clickedColor === correctColor){
+			alert("Correct");
+		}
+		else{
+			alert("Wrong choice");
+		}
 	});
 }
