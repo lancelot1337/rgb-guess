@@ -24,10 +24,18 @@ for(var i = 0; i < colors.length; ++i){
 		//Check if the colors are same
 		if(clickedColor === correctColor){
 			gamePrompt.textContent = "Correct!";
+			changeColors(clickedColor);
 		}
 		else{
 			this.style.background = "#c4c4c4";
 			gamePrompt.textContent = "Try Again!";
 		}
 	});
+}
+
+//function to change the color of all squares
+function changeColors(clickedColor){
+	for(var i = 0; i < squares.length; ++i){
+		squares[i].style.background = clickedColor;
+	}
 }
