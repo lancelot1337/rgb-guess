@@ -25,13 +25,13 @@ var easyBtn = document.getElementById('easyBtn');
 var hardBtn = document.getElementById('hardBtn');
 
 easyBtn.addEventListener('click', function () {
-	H1.style.background = '#232323';
+	H1.style.background = 'steelblue';
 	hardBtn.classList.remove('selected');
 	easyBtn.classList.add('selected');
 	numSquares = 3;
 	colors = colorsArrGen(numSquares);
 	correctColor = getRandSeedColor();
-	rgbHead.textContent = correctColor.toUpperCase();
+	rgbHead.textContent = correctColor;
 	for (var i = 0; i < squares.length; ++i){
 		if(colors[i]) {
 			squares[i].style.background = colors[i];
@@ -44,13 +44,13 @@ easyBtn.addEventListener('click', function () {
 });
 
 hardBtn.addEventListener('click', function () {
-	H1.style.background = '#232323';
+	H1.style.background = 'steelblue';
 	easyBtn.classList.remove('selected');
 	hardBtn.classList.add('selected');
 	numSquares = 6;
 	colors = colorsArrGen(numSquares);
 	correctColor = getRandSeedColor();
-	rgbHead.textContent = correctColor.toUpperCase();
+	rgbHead.textContent = correctColor;
 	for (var i = 0; i < squares.length; ++i){
 		squares[i].style.background = colors[i];
 		squares[i].style.display = 'block';
@@ -73,13 +73,13 @@ resetButton.addEventListener('click', () => {
 	}
 
 	//Update the header text
-	rgbHead.textContent = correctColor.toUpperCase();
+	rgbHead.textContent = correctColor;
 
 	//Update the header background
-	H1.style.background = '#232323';
+	H1.style.background = 'steelblue';
 });
 
-rgbHead.textContent = correctColor.toUpperCase();
+rgbHead.textContent = correctColor;
 for (var i = 0; i < colors.length; ++i) {
 	//Add colors to the boxes
 	squares[i].style.background = colors[i];

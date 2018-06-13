@@ -1,5 +1,7 @@
 body{
 	background-color: #232323;
+	margin: 0;
+	font-family: 'Helvetica';
 }
 
 .square{
@@ -19,6 +21,12 @@ div#container{
 h1{
 	color: white;
 	text-align: center;
+	background: steelblue;
+	font-weight: normal;
+	line-height: 1.1;
+	padding: 20px 0;
+	text-transform: uppercase;
+	margin: 0;
 }
 
 #gamePromptDiv{
@@ -37,4 +45,8 @@ span#gamePrompt{
 
 .selected{
 	background: blue;
+}
+
+#rgbHead{
+	font-size:  200%;
 }
