@@ -58,6 +58,9 @@ hardBtn.addEventListener('click', function () {
 
 });
 resetButton.addEventListener('click', () => {
+	//Update gamePrompt
+	gamePrompt.textContent = '';
+
 	//Update the resetButton
 	resetButton.textContent = 'New Colors';
 
@@ -77,6 +80,9 @@ resetButton.addEventListener('click', () => {
 
 	//Update the header background
 	H1.style.background = 'steelblue';
+
+	//Update resetButton textContent
+	this.textContent = 'New Colors';
 });
 
 rgbHead.textContent = correctColor;
