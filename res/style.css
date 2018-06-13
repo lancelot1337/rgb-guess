@@ -45,6 +45,7 @@ h1{
 span#gamePrompt{
 	color: black;
 	display: inline-block;
+	text-align: center;
 	width: 20%;
 }
 
