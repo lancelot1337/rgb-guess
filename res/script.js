@@ -15,6 +15,25 @@ var squares = document.querySelectorAll(".square");
 var rgbHead = document.getElementById("rgbHead");
 var gamePrompt = document.querySelector("#gamePrompt");
 var H1 = document.getElementById("H1");
+var resetButton = document.getElementById("resetButton");
+
+resetButton.addEventListener("click",() => {
+	//Update the resetButton
+	resetButton.textContent = "New Colors";
+	//Gen a new colors array
+	colors = colorsArrGen(6);
+	//Gen a new correctColor
+	correctColor = getRandSeedColor();
+	//Update the background of squares
+	for(var i = 0; i < colors.length; ++i){
+		squares[i].style.background = colors[i];
+	}
+	//Update the header text
+	rgbHead.textContent = correctColor.toUpperCase();
+	//Update the header background
+	H1.style.background = '#232323';
+});
+
 rgbHead.textContent = correctColor.toUpperCase();
 for(var i = 0; i < colors.length; ++i){
 	//Add colors to the boxes
@@ -30,9 +49,10 @@ for(var i = 0; i < colors.length; ++i){
 			gamePrompt.textContent = "Correct!";
 			changeColors(clickedColor);
 			H1.style.background = clickedColor;
+			resetButton.textContent = "Play Again";
 		}
 		else{
-			this.style.background = "#c4c4c4";
+			this.style.background = "#232323";
 			gamePrompt.textContent = "Try Again!";
 		}
 	});
@@ -50,6 +70,7 @@ function getRandSeedColor(){
 	return colors[randNum];
 }
 
+//Function to generate new colors array
 function colorsArrGen(arrSize){
 	var colorsArr = new Array();
 	for(var i = 0; i < arrSize; ++i){
@@ -58,6 +79,7 @@ function colorsArrGen(arrSize){
 	return colorsArr;
 }
 
+//Helper function for colorsArrGen, returns a single random color
 function randColorGenerator(){
 	var r = Math.floor(Math.random() * 256);
 	var g = Math.floor(Math.random() * 256);

@@ -1,10 +1,10 @@
 body{
-	background-color: #c4c4c4;
+	background-color: #232323;
 }
 
 .square{
 	width: 30%;
-	background: #000;
+	background: purple;
 	padding-top: 30%;
 	margin: 1.66%;
 	float: left;
@@ -16,11 +16,21 @@ div#container{
 	max-width: 60%;
 }
 
-div#gamePromptDiv{
-	margin: 0 auto;
+h1{
+	color: white;
+	text-align: center;
 }
 
-h1{
-	color: #222;
-	text-align: center;
+#gamePromptDiv{
+	/* To vertically and horizontally align divs*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* Normal CSS */
+	background: white;
+	height: 30px;
+}
+
+span#gamePrompt{
+	color: black;
 }
