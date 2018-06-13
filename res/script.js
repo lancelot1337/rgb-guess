@@ -11,7 +11,8 @@ var colors = [
 	];
 */
 
-var colors = colorsArrGen(6);
+var numSquares = 6;
+var colors = colorsArrGen(numSquares);
 
 // var correctColor = colors[3];
 var correctColor = getRandSeedColor();
@@ -24,14 +25,36 @@ var easyBtn = document.getElementById('easyBtn');
 var hardBtn = document.getElementById('hardBtn');
 
 easyBtn.addEventListener('click', function () {
+	H1.style.background = '#232323';
 	hardBtn.classList.remove('selected');
 	easyBtn.classList.add('selected');
+	numSquares = 3;
+	colors = colorsArrGen(numSquares);
+	correctColor = getRandSeedColor();
+	rgbHead.textContent = correctColor.toUpperCase();
+	for (var i = 0; i < squares.length; ++i){
+		if(colors[i]) {
+			squares[i].style.background = colors[i];
+		}
+		else {
+			squares[i].style.display = 'none';
+		}
+	}
 
 });
 
 hardBtn.addEventListener('click', function () {
-	hardBtn.classList.add('selected');
+	H1.style.background = '#232323';
 	easyBtn.classList.remove('selected');
+	hardBtn.classList.add('selected');
+	numSquares = 6;
+	colors = colorsArrGen(numSquares);
+	correctColor = getRandSeedColor();
+	rgbHead.textContent = correctColor.toUpperCase();
+	for (var i = 0; i < squares.length; ++i){
+		squares[i].style.background = colors[i];
+		squares[i].style.display = 'block';
+}
 
 });
 resetButton.addEventListener('click', () => {
@@ -39,7 +62,7 @@ resetButton.addEventListener('click', () => {
 	resetButton.textContent = 'New Colors';
 
 	//Gen a new colors array
-	colors = colorsArrGen(6);
+	colors = colorsArrGen(numSquares);
 
 	//Gen a new correctColor
 	correctColor = getRandSeedColor();
