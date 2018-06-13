@@ -34,3 +34,7 @@ h1{
 span#gamePrompt{
 	color: black;
 }
+
+.selected{
+	background: blue;
+}

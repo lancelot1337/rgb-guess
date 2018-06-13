@@ -20,7 +20,20 @@ var rgbHead = document.getElementById('rgbHead');
 var gamePrompt = document.querySelector('#gamePrompt');
 var H1 = document.getElementById('H1');
 var resetButton = document.getElementById('resetButton');
+var easyBtn = document.getElementById('easyBtn');
+var hardBtn = document.getElementById('hardBtn');
 
+easyBtn.addEventListener('click', function () {
+	hardBtn.classList.remove('selected');
+	easyBtn.classList.add('selected');
+
+});
+
+hardBtn.addEventListener('click', function () {
+	hardBtn.classList.add('selected');
+	easyBtn.classList.remove('selected');
+
+});
 resetButton.addEventListener('click', () => {
 	//Update the resetButton
 	resetButton.textContent = 'New Colors';
@@ -95,3 +108,26 @@ function randColorGenerator(){
 	var b = Math.floor(Math.random() * 256);
 	return ('rgb(' + r + ', ' + g + ', ' + b + ')');
 }
+/*js snippets
+gi = document.getElementById('id');
+fe = myArray.forEach(function(elem) {
+	// body...
+});
+fi = for (prop in obj) {
+	if (obj.hasOwnProperty(prop)) {
+		// body...
+	}
+}
+fn = function methodName (arguments) {
+	// body...
+}
+st = setTimeout(function() {
+	// body...
+}, delay);
+si = setInterval(function() {
+	// body...
+}, delay);
+cl = console.log(obj);
+cw = console.warn(obj);
+us = 'use strict';
+*/
