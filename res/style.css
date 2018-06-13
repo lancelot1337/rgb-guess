@@ -8,11 +8,16 @@ body{
 	padding-top: 30%;
 	margin: 1.66%;
 	float: left;
+	border-radius: 20px;
 }
 
 div#container{
 	margin: 0 auto;
 	max-width: 60%;
+}
+
+div#gamePromptDiv{
+	margin: 0 auto;
 }
 
 h1{
