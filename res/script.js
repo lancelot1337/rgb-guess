@@ -12,14 +12,12 @@ var colors = [
 */
 
 var numSquares = 6;
-var colors = colorsArrGen(numSquares);
-
-// var correctColor = colors[3];
-var correctColor = getRandSeedColor();
+var colors = [];
+var correctColor;
+var H1 = document.getElementById('H1');
 var squares = document.querySelectorAll('.square');
 var rgbHead = document.getElementById('rgbHead');
 var gamePrompt = document.querySelector('#gamePrompt');
-var H1 = document.getElementById('H1');
 var resetButton = document.getElementById('resetButton');
 
 /*
@@ -62,21 +60,55 @@ hardBtn.addEventListener('click', function () {
 
 var modeBtn = document.querySelectorAll('.mode');
 
-for(var i = 0; i < modeBtn.length; ++i){
-	modeBtn[i].addEventListener('click', function() {
-		modeBtn[0].classList.remove('selected');
-		modeBtn[1].classList.remove('selected');
-		this.classList.add('selected');
-		if (this.textContent === 'Easy'){
-			numSquares = 3;
-		}
-		else {
-			numSquares = 6;
-		}
-		resetFun();
-	});
+init();
+
+function init() {
+	modeBtnGen();
+	squaresGen();
+	resetFun();
 }
 
+function modeBtnGen(){
+	for(var i = 0; i < modeBtn.length; ++i){
+		modeBtn[i].addEventListener('click', function() {
+			modeBtn[0].classList.remove('selected');
+			modeBtn[1].classList.remove('selected');
+			this.classList.add('selected');
+			if (this.textContent === 'Easy'){
+				numSquares = 3;
+			}
+			else {
+				numSquares = 6;
+			}
+			resetFun();
+		});
+	}
+}
+
+function squaresGen() {
+	for(var i = 0; i < squares.length; ++i){
+		//Add colors to the boxes
+		squares[i].style.background = colors[i];
+
+		//Add click listeners
+		squares[i].addEventListener('click', function () {
+			//Grab the color of the clicked box
+			var clickedColor = this.style.background;
+
+			//Check if the colors are same
+			if (clickedColor === correctColor) {
+				gamePrompt.textContent = 'Correct!';
+				changeColors(clickedColor);
+				H1.style.background = clickedColor;
+				resetButton.textContent = 'Play Again';
+			}
+			else{
+				this.style.background = '#232323';
+				gamePrompt.textContent = 'Try Again!';
+			}
+		});
+	}
+}
 function resetFun() {
 	//Update gamePrompt
 	gamePrompt.textContent = '';
@@ -114,30 +146,6 @@ function resetFun() {
 resetButton.addEventListener('click', () => {
 	resetFun();
 });
-
-rgbHead.textContent = correctColor;
-for (var i = 0; i < colors.length; ++i) {
-	//Add colors to the boxes
-	squares[i].style.background = colors[i];
-
-	//Add click listeners
-	squares[i].addEventListener('click', function () {
-		//Grab the color of the clicked box
-		var clickedColor = this.style.background;
-
-		//Check if the colors are same
-		if (clickedColor === correctColor) {
-			gamePrompt.textContent = 'Correct!';
-			changeColors(clickedColor);
-			H1.style.background = clickedColor;
-			resetButton.textContent = 'Play Again';
-		}
-		else{
-			this.style.background = '#232323';
-			gamePrompt.textContent = 'Try Again!';
-		}
-	});
-}
 
 //function to change the color of all squares
 function changeColors(clickedColor){
