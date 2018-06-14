@@ -21,6 +21,8 @@ var rgbHead = document.getElementById('rgbHead');
 var gamePrompt = document.querySelector('#gamePrompt');
 var H1 = document.getElementById('H1');
 var resetButton = document.getElementById('resetButton');
+
+/*
 var easyBtn = document.getElementById('easyBtn');
 var hardBtn = document.getElementById('hardBtn');
 
@@ -54,10 +56,28 @@ hardBtn.addEventListener('click', function () {
 	for (var i = 0; i < squares.length; ++i){
 		squares[i].style.background = colors[i];
 		squares[i].style.display = 'block';
+	}
+});
+*/
+
+var modeBtn = document.querySelectorAll('.mode');
+
+for(var i = 0; i < modeBtn.length; ++i){
+	modeBtn[i].addEventListener('click', function() {
+		modeBtn[0].classList.remove('selected');
+		modeBtn[1].classList.remove('selected');
+		this.classList.add('selected');
+		if (this.textContent === 'Easy'){
+			numSquares = 3;
+		}
+		else {
+			numSquares = 6;
+		}
+		resetFun();
+	});
 }
 
-});
-resetButton.addEventListener('click', () => {
+function resetFun() {
 	//Update gamePrompt
 	gamePrompt.textContent = '';
 
@@ -71,8 +91,14 @@ resetButton.addEventListener('click', () => {
 	correctColor = getRandSeedColor();
 
 	//Update the background of squares
-	for (var i = 0; i < colors.length; ++i) {
-		squares[i].style.background = colors[i];
+	for (var i = 0; i < squares.length; ++i) {
+		if(colors[i]){
+			squares[i].style.display = 'block';
+			squares[i].style.background = colors[i];
+		}
+		else{
+			squares[i].style.display = 'none';
+		}
 	}
 
 	//Update the header text
@@ -82,7 +108,11 @@ resetButton.addEventListener('click', () => {
 	H1.style.background = 'steelblue';
 
 	//Update resetButton textContent
-	this.textContent = 'New Colors';
+	resetButton.textContent = 'New Colors';
+}
+
+resetButton.addEventListener('click', () => {
+	resetFun();
 });
 
 rgbHead.textContent = correctColor;
